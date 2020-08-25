@@ -16,7 +16,7 @@ def main():
     mouse_posistion = (0,0)
     mouse = pygame.mouse
     drawing = False
-    last_pos = None
+    last_pos = pygame.mouse.get_pos()
 
     # Event loop
     while True:
@@ -25,8 +25,8 @@ def main():
             if event.type == QUIT:
                 pygame.Quit()
                 sys.exit()
-            elif left_pressed:
-                pygame.draw.circle(screen, BLACK, (pygame.mouse.get_pos()), 2)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                pygame.draw.line(screen, BLACK, last_pos, pygame.mouse.get_pos(), 1)
         pygame.display.update()
 
 if __name__ == '__main__': main()
