@@ -23,18 +23,17 @@ def main():
     # Event loop
     while True:
         clock.tick(60)
-        x,y = pygame.mouse.get_pos()
+        #x,y = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.Quit()
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                #pygame.draw.line(screen, BLACK, last_pos, pygame.mouse.get_pos())
                 z = 1
             elif event.type == MOUSEBUTTONUP:
                 z = 0
 
-            if z == 1:
-                pygame.draw.line(screen, BLACK, last_pos, pygame.mouse.get_pos())
+        if z == 1:
+            pygame.draw.line(screen, BLACK, last_pos, pygame.mouse.get_pos())
         pygame.display.update()
 if __name__ == '__main__': main()
